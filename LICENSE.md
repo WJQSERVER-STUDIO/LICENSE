@@ -14,7 +14,7 @@
 
 - 本项目为开源软件，允许用户在遵循本许可证的前提下访问和使用源代码。
 - 本项目不等同于自由软件，使用权限受到本许可证条款的限制。
-- 版权所有，所有权利均由 WJQserver Studio 保留。
+- 强调版权所有，所有权利均由 WJQserver Studio 保留。
 
 ## 许可证条款
 
@@ -68,4 +68,72 @@
 
 ---
 
-如有任何疑问，请联系 WJQserver Studio。
+# WJQserver Studio Open Source License
+
+**Version 1.2**
+
+Copyright © WJQserver Studio 2024
+
+## Definitions
+
+1. **License**: The terms and conditions defined within this license for use, copying, distribution, and modification.
+2. **Licensor**: The individual or organization holding the copyright, or the entity designated by them.
+3. **You**: The individual or legal entity exercising the permissions granted by this license.
+
+## Open Source vs. Free Software
+
+- This project is open source, allowing users to access and use the source code under the terms of this license.
+- This project is not equivalent to free software; usage rights are restricted by this license.
+- Copyright is emphasized, with all rights reserved by WJQserver Studio.
+
+## License Terms
+
+### 1. Usage Rights
+
+1.1 You are granted the right to use this software freely in a private environment.
+
+1.2 You may use it commercially without modifying key statements.
+
+### 2. Copying and Distribution
+
+2.1 You may copy and distribute the original version of this software, provided all copyright notices and this license are retained.
+
+### 3. Modification Rights
+
+3.1 You may modify this software for non-commercial purposes, provided you inherit this license and retain the original copyright notice.
+
+3.2 Modifications cannot be used commercially.
+
+### 4. Patent References
+
+4.1 If the project is cited in patent-related contexts, the source statement must be retained.
+
+4.2 For commercial scenarios, it must be treated as a commercial use.
+
+### 5. Disclaimer
+
+5.1 This software is provided "as is", without any express or implied warranties, including but not limited to merchantability, fitness for a particular purpose, and non-infringement.
+
+5.2 In no event shall the licensor be liable for any direct, indirect, incidental, special, punitive, or consequential damages arising out of the use or inability to use this software, even if advised of the possibility of such damages.
+
+5.3 Users must comply with all applicable laws regarding this project.
+
+### 6. License Duration
+
+6.1 This license is effective from 2024, with an indefinite duration.
+
+6.2 The project owner reserves the right to modify the license terms without prior notice.
+
+## Amendments
+
+7.1 The licensor reserves the right to amend this license at any time to better adapt to legal and technological developments.
+
+7.2 Revised terms become effective upon publication, and continued use of the software indicates acceptance of the revised terms.
+
+## Miscellaneous
+
+8.1 This license does not affect your statutory rights as an end user.
+
+8.2 If any provision of this license is held to be unenforceable, the remaining provisions shall remain in effect.
+
+---
