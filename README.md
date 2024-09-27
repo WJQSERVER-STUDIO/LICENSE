@@ -28,6 +28,6 @@ WJQserver Studio 开源许可证(WSL LICENSE),为用户提供了使用、复制�
 6. **许可证期限**:
    - 本许可证自2024年生效，授权方保留随时修改条款的权利。
 
-## 结论
+---
 
-WJQserver Studio 开源许可证为用户提供了灵活的使用和修改权利，同时确保了版权的保护。通过遵循这些条款，用户可以合法地使用和分享软件，促进开源社区的发展。
+参看 https://wjqserver-studio.github.io/LICENSE/LICENSE.html
