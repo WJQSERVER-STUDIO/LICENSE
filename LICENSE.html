@@ -3,146 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WJQserver Studio 开源许可证 | Open Source License</title>
+    <title>WJQserver Studio 开源许可证</title>
     <style>
+        /*  Qt Breeze 深色主题色板 (近似) */
+        :root {
+            --bg-color: #31363b; /*  深色背景 */
+            --text-color: #f5f5f5; /*  浅色文本 */
+            --header-color: #cdd6f4; /*  浅蓝灰色标题 */
+            --accent-color: #8be9fd; /*  青色强调色 */
+            --block-bg-color: #495057; /*  块状背景色，稍浅于主背景 */
+            --block-border-color: #5c636a; /*  块状边框颜色 */
+            --light-gray: #e0e0e0; /*  浅灰色，用于突出显示 */
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color); /*  深色背景 */
+            color: var(--text-color); /*  浅色文本 */
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        header, footer {
-            background-color: #2c3e50;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
+
+        .license-container {
+            width: 95%;
+            max-width: 1200px;
+            padding: 40px;
+            background-color: var(--bg-color); /* 保持 container 背景色与 body 一致 */
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /*  深色主题下更明显的阴影 */
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
         }
-        main {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+        /*  Bootstrap-like 栅格系统 (简化) */
+        .row {
+            display: flex;
+            flex-wrap: wrap; /*  允许 row 内 block 换行 */
+            margin-left: -15px; /*  抵消左右 padding 产生的间距 */
+            margin-right: -15px;
+        }
+
+        .col-md-6 {
+            flex: 0 0 50%; /*  默认占据一半宽度 */
+            max-width: 50%;
+            padding-left: 15px; /*  左右 padding，形成列间距 */
+            padding-right: 15px;
+        }
+
+        /*  License Block 样式 */
+        .license-block {
+            margin-bottom: 25px;
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /*  深色主题下 block 阴影 */
+            background-color: var(--block-bg-color); /*  块状背景色 */
+            border: 1px solid var(--block-border-color); /*  块状边框颜色 */
         }
-        h1, h2, h3 {
-            text-align: center;
+
+        .block-lang-zh, .block-lang-en {
+            padding: 25px;
+            flex: 1;
+            min-width: 50%;
+            word-wrap: break-word; /*  处理长单词换行 */
+        }
+
+        .block-lang-en {
+            background-color: var(--block-bg-color); /* 英文 block 背景色与中文一致 */
+            border-left: 1px solid var(--block-border-color); /*  块状分隔线颜色 */
+        }
+
+        .block-header {
+            color: var(--accent-color); /* 青色强调色 */
+            margin-top: 0;
             margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /*  为标题添加文字阴影 */
         }
-        h1 {
-            font-size: 2em;
-        }
+
+        /*  标题和文本样式 */
         h2 {
-            font-size: 1.5em;
-            color: #34495e;
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: var(--header-color); /*  浅蓝灰色标题 */
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6); /*  为主标题添加更强的文字阴影 */
         }
+
+        .version {
+            font-size: 1.1rem;
+            color: var(--light-gray); /*  浅灰色版本信息 */
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.8; /*  降低版本信息透明度，使其更柔和 */
+        }
+
+        .copyright {
+            font-size: 1rem;
+            color: var(--light-gray); /*  浅灰色版权信息 */
+            display: block;
+            margin-bottom: 30px;
+            opacity: 0.7; /*  更低的版权信息透明度 */
+        }
+
         h3 {
-            font-size: 1.2em;
-            color: #7f8c8d;
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: var(--accent-color); /* 青色强调色 */
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /*  为小标题添加文字阴影 */
         }
-        p, ul {
-            margin: 0 0 10px;
-            line-height: 1.8;
+
+        p, ul, ol, dl, dd {
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: var(--text-color); /*  浅色正文文本 */
+            font-size: 1rem;
+            opacity: 0.9; /*  稍微降低正文文本透明度 */
         }
-        ul {
-            padding-left: 20px;
+
+        ul, ol {
+            padding-left: 22px;
         }
+
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--header-color); /*  浅蓝灰色定义术语 */
+        }
+
+        hr {
+            display: none;
+        }
+
+        /*  链接样式 */
         a {
-            color: #3498db;
+            color: var(--accent-color); /* 青色链接色 */
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
+        /*  浅灰色突出显示 */
+        .block-lang-en {
+            background-color: var(--block-bg-color); /*  英文 block 背景色与中文一致，移除浅灰背景 */
+            border-left: 1px solid var(--block-border-color); /*  分隔线颜色 */
+        }
+        .license-block:nth-child(even) .block-lang-en,
+        .license-block:nth-child(even) .block-lang-zh {
+            background-color: #40454b; /*  交替 block 背景色，更浅的灰色 */
+        }
+
+
+        /* 响应式布局 */
+        @media (max-width: 992px) {
+            .license-container {
+                width: 98%;
+                max-width: 960px;
+                padding: 30px;
+                margin: 15px;
+            }
+            .license-block {
+                flex-direction: column;
+                margin-bottom: 20px;
+                border-radius: 6px;
+            }
+            .block-lang-en {
+                border-left: none;
+                border-top: 1px solid var(--block-border-color);
+            }
+            .block-lang-zh, .block-lang-en {
+                min-width: auto;
+                padding: 20px;
+            }
+            .block-header {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            h3 {
+                font-size: 1.2rem;
+                margin-top: 20px;
+            }
+             p, ul, ol, dl, dd {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+            .col-md-6 {
+                flex: 0 0 100%; /*  小屏幕 block 占据整行 */
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .license-container {
+                 border-radius: 8px;
+                 padding: 20px;
+            }
+             .license-block {
+                 margin-bottom: 15px;
+             }
+        }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="license-container">
+        <h2>WJQserver Studio 开源许可证</h2>
+        <span class="version">版本 v2.0</span>
+        <span class="copyright">版权所有 © WJQserver Studio 2024</span>
 
-    <header>
-        <h1>WJQserver Studio 开源许可证</h1>
-        <p>Open Source License</p>
-    </header>
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">定义</h3>
+                <dl>
+                    <dt>许可 (License):</dt>
+                    <dd>指的是在本许可证内定义的使用、复制、分发与修改软件的条款与要求。</dd>
 
-    <main>
-        <section>
-            <h2>定义 | Definitions</h2>
-            <p><strong>许可 | License:</strong> 指在本许可证内定义的使用、复制、分发与修改的条款与要求。 | Terms and conditions for use, reproduction, and distribution.</p>
-            <p><strong>授权方 | Licensor:</strong> 指拥有版权的个人或组织，亦或是拥有版权的个人或组织所指派的实体。 | The individual or entity granting the license.</p>
-            <p><strong>您 | You:</strong> 指行使本许可授予的权限的个人或法律实体。 | The individual or entity exercising rights under this license.</p>
-        </section>
+                    <dt>授权方 (Licensor):</dt>
+                    <dd>指的是拥有版权的个人或组织，亦或是拥有版权的个人或组织所指派的实体，在本许可证中特指 WJQserver Studio。</dd>
 
-        <section>
-            <h2>开源与自由软件 | Open Source vs Free Software</h2>
-            <ul>
-                <li>本项目为开源软件，允许用户在遵循本许可证的前提下访问和使用源代码。 | This project is open source, allowing access and use of the source code under this license.</li>
-                <li>本项目不等同于自由软件，使用权限受到本许可证条款的限制。 | This project is not free software; usage is restricted by this license.</li>
-                <li>强调版权所有，所有权利均由 WJQserver Studio 保留。 | All rights reserved by WJQserver Studio.</li>
-            </ul>
-        </section>
+                    <dt>贡献者 (Contributor):</dt>
+                    <dd>指的是授权方以及根据本许可证授予贡献代码或软件的个人或实体。</dd>
 
-        <section>
-            <h2>许可证条款 | License Terms</h2>
+                    <dt>您 (You):</dt>
+                    <dd>指的是行使本许可授予的权限的个人或法律实体。</dd>
 
-            <h3>1. 使用权限 | Usage Rights</h3>
-            <ul>
-                <li>您被授予在私人环境中自由使用本软件的权限。 | You are granted the right to use this software freely in private environments.</li>
-                <li>您可以在不修改关键声明的前提下进行商用。 | Commercial use is allowed without altering key declarations.</li>
-            </ul>
+                    <dt>衍生作品 (Derivative Works):</dt>
+                    <dd>指的是基于本软件或本软件任何部分的修改作品，无论修改程度如何。这包括但不限于基于本软件或其任何部分的修改、修订、改编、翻译或其他形式的创作，以及包含本软件或其部分的集合作品。</dd>
 
-            <h3>2. 复制与分发 | Copying and Distribution</h3>
-            <ul>
-                <li>您可以复制和分发本软件的原始版本，前提是必须保留所有版权声明和本许可证。 | You may copy and distribute the original version, provided all copyright notices and licenses are retained.</li>
-            </ul>
+                    <dt>非营利性使用 (Non-profit Use):</dt>
+                    <dd>指的是不以直接商业盈利为主要目的的使用方式，包括但不限于：
+                        <ul>
+                            <li>个人用途： 由个人为了个人学习、研究、实验、非商业项目、个人网站搭建、毕业设计、家庭内部娱乐等非直接商业目的使用软件。</li>
+                            <li>教育用途： 在教育机构（如学校、大学、培训机构）内部用于教学、研究、学术交流等活动。</li>
+                            <li>科研用途：  在科研院所、实验室等机构内部用于科学研究、实验开发等活动。</li>
+                            <li>慈善与公益用途：  由慈善机构、公益组织等非营利性组织为了其公益使命或慈善事业内部运营使用，或对外提供不直接产生商业利润的公益服务。</li>
+                            <li>内部运营用途 (非营利组织)： 非营利性组织在其内部运营中使用软件，例如用于行政管理、会员管理、内部沟通、项目管理等非直接营利性活动。</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
 
-            <h3>3. 修改权限 | Modification Rights</h3>
-            <ul>
-                <li>您可以在非商业用途下修改本软件，前提是继承本许可证并保留原版权声明。 | Modifications for non-commercial use are allowed, provided the license is inherited and original notices are retained.</li>
-                <li>禁止在修改后进行商业用途。 | Commercial use of modified versions is prohibited.</li>
-            </ul>
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">开源与自由软件</h3>
+                <p>本项目为开源软件，允许用户在遵循本许可证的前提下访问和使用源代码。</p>
+                <p>本项目旨在向用户提供尽可能广泛的非商业使用自由，同时保障社区的共同发展和良性生态，并为商业创新提供清晰的路径。</p>
+                <p>强调版权所有，所有权利由 WJQserver Studio 及贡献者共同保留。</p>
+            </div>
+        </div>
 
-            <h3>4. 专利引用 | Patent Claims</h3>
-            <ul>
-                <li>若项目被专利相关引用，必须保留来源声明。 | Patent references must retain source acknowledgment.</li>
-                <li>若为商业场景，需按照商用处理。 | Commercial scenarios require appropriate handling.</li>
-            </ul>
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">许可证条款</h3>
+                <h4>1. 使用权限</h4>
+                <dl>
+                    <dt>1.1 非营利性使用：</dt>
+                    <dd>您被授予在非营利性使用场景下，为了任何目的，自由使用本软件的权限。  非营利性使用的具体场景包括但不限于定义部分所列举的各种情况。</dd>
 
-            <h3>5. 免责声明 | Disclaimer</h3>
-            <ul>
-                <li>本软件按“现状”提供，不提供任何明示或暗示的保证，包括但不限于适销性、特定用途适用性及非侵权性。 | Provided "as is" without warranties, including merchantability or fitness for a particular purpose.</li>
-                <li>在任何情况下，授权方均不对因使用或无法使用本软件而产生的任何直接、间接、偶然、特殊、惩罚性或后果性损害负责，即使已被告知可能发生此类损害。 | Licensor is not liable for any damages arising from use or inability to use this software.</li>
-                <li>用户需根据当地法律对待本项目，确保遵守所有适用法规。 | Users must comply with local laws and regulations.</li>
-            </ul>
+                    <dt>1.2 商业使用：</dt>
+                    <dd>您可以在商业环境中使用本软件，无需获得额外授权，但您的商业使用行为必须遵守以下条款：
+                        <dl>
+                            <dt>1.2.1 保持声明：</dt>
+                            <dd>您在进行商业使用时，不得移除或修改软件中包含的原始版权声明、许可证声明以及来源声明。</dd>
 
-            <h3>6. 许可证期限 | License Duration</h3>
-            <ul>
-                <li>本许可证自2024年开始生效，有效期暂为无限。 | Effective from 2024, with indefinite duration.</li>
-                <li>项目所有方有权修改许可证相关条例而不另行通知。 | Licensor reserves the right to amend terms without notice.</li>
-            </ul>
-        </section>
+                            <dt>1.2.2 开源继承 (Copyleft) 与互惠共享：</dt>
+                            <dd>如果您或您的组织希望将本软件或其衍生作品用于任何商业用途，包括但不限于：
+                                <ul>
+                                    <li>盈利性分发：  销售、出租、许可分发本软件或其衍生作品。</li>
+                                    <li>盈利性服务：  基于本软件或其衍生作品提供商业服务，例如 SaaS 服务、咨询服务、定制开发服务、收费技术支持服务等。</li>
+                                    <li>嵌入式商业应用：  将本软件或其衍生作品嵌入到商业产品或解决方案中进行销售。</li>
+                                    <li>组织内部商业运营：  在营利性组织的内部运营中使用修改后的版本以直接支持其商业活动，例如定制化内部系统，通过例如但不限于在软件或相关服务中投放广告 (例如 Google Ads 等)，应用内购买 (内购), 会员订阅， 增值功能收费等方式直接或间接产生商业收入。</li>
+                                </ul>
+                                <p>您必须选择以下两种方式之一：</p>
+                                <ol>
+                                    <li>i) 继承本许可证并开源：  您必须以本许可证或兼容的开源许可证分发您的衍生作品，并公开您的衍生作品的全部源代码，使得您的衍生作品的接收者也享有与您相同的权利，包括进一步修改和商业使用的权利。 本选项旨在促进社区的共同发展和知识共享，确保基于本软件的商业创新成果也能回馈社区。</li>
+                                    <li>ii) 获得授权方明确授权：  如果您不希望以开源方式发布您的衍生作品，或者希望使用其他许可证进行分发，或者您希望在商业运营中使用修改后的版本但不开源，您必须事先获得 WJQserver Studio 的明确书面授权。  授权的具体条款和条件将由 WJQserver Studio 另行协商确定。</li>
+                                </ol>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
 
-        <section>
-            <h2>条款修订 | Amendments</h2>
-            <ul>
-                <li>授权方保留随时修改本许可证条款的权利，以便更好地适应法律和技术的发展。 | Licensor may amend terms to adapt to legal and technological changes.</li>
-                <li>修订后的条款将在发布时生效，继续使用本软件即表示接受修订后的条款。 | Continued use signifies acceptance of revised terms.</li>
-            </ul>
-        </section>
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">2. 复制与分发</h3>
+                <dl>
+                    <dt>2.1 原始版本复制与分发：</dt>
+                    <dd>您可以复制和分发本软件的原始版本，前提是必须满足以下条件：
+                        <ul>
+                            <li>保留所有声明：  完整保留所有原始版权声明、许可证声明、来源声明以及其他所有权声明。</li>
+                            <li>附带许可证：  在分发软件时，必须同时附带本许可证的完整文本，确保接收者知悉并理解本许可证的全部条款。</li>
+                        </ul>
+                    </dd>
 
-        <section>
-            <h2>其他 | Miscellaneous</h2>
-            <ul>
-                <li>本许可证不影响您作为最终用户的法定权利。 | This license does not affect statutory rights as an end-user.</li>
-                <li>若本许可证的某些条款被认定为不可执行，其余条款仍然有效。 | Unenforceable provisions do not affect the remainder of the license.</li>
-            </ul>
-        </section>
-    </main>
+                    <dt>2.2 衍生作品复制与分发：</dt>
+                    <dd>您可以复制和分发基于本软件的衍生作品，您对衍生作品的分发行为将受到本许可证第 1.2.2 条（开源继承与互惠共享）的约束。</dd>
+                </dl>
+            </div>
+        </div>
 
-    <footer>
-        <p>WJQserver Studio Copyright © 2024</p>
-        <p><a href="https://github.com/WJQSERVER-STUDIO/LICENSE" target="_blank">仓库链接 | Repository Link</a></p>
-    </footer>
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">3. 修改权限</h3>
+                <dl>
+                    <dt>3.1 自由修改：</dt>
+                    <dd>您被授予自由修改本软件的权限，无论修改目的是非营利性使用还是商业用途。</dd>
 
+                    <dt>3.2 修改后使用与分发约束：</dt>
+                    <dd>当您将修改后的版本用于商业用途或分发修改后的版本时，您需要遵守本许可证第 1.2.2 条（开源继承与互惠共享）以及第 2 条（复制与分发）的规定。  即使您不分发修改后的版本，只要您将其用于商业目的，也需要遵守开源继承条款或获得授权。</dd>
+
+                    <dt>3.3 贡献接受：</dt>
+                    <dd>WJQserver Studio 鼓励社区贡献代码。如果您向本项目贡献代码，您需要同意您的贡献代码按照本许可证条款进行许可。</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">4. 专利权</h3>
+                <dl>
+                    <dt>4.1 无专利担保，风险自担：</dt>
+                    <dd>本软件以“现状”提供，授权方及贡献者明确声明，不对本软件的专利侵权问题做任何形式的担保，亦不承担任何因专利侵权可能产生的责任与后果。  用户理解并同意，使用本软件的专利风险完全由用户自行承担。</dd>
+
+                    <dt>4.2 专利纠纷应对：</dt>
+                    <dd>如因用户使用本软件而引发任何专利侵权指控、诉讼或索赔，用户应自行负责处理并承担全部法律责任。  授权方及贡献者无义务参与任何相关法律程序，亦不承担任何由此产生的费用或赔偿。</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">5. 免责声明</h3>
+                <dl>
+                    <dt>5.1 “现状”提供，无任何保证：</dt>
+                    <dd>本软件按“现状”提供，不提供任何明示或暗示的保证，包括但不限于适销性、特定用途适用性及非侵权性。</dd>
+
+                    <dt>5.2 责任限制：</dt>
+                    <dd>在适用法律允许的最大范围内，在任何情况下，授权方或任何贡献者均不对因使用或无法使用本软件而产生的任何直接、间接、偶然、特殊、惩罚性或后果性损害（包括但不限于采购替代商品或服务；损失使用、数据或利润；或业务中断）负责，无论其是如何造成的，也无论依据何种责任理论，即使已被告知可能发生此类损害。</dd>
+
+                    <dt>5.3 用户法律责任：</dt>
+                    <dd>用户需根据当地法律对待本项目，确保遵守所有适用法规。</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">6. 许可证期限与终止</h3>
+                <dl>
+                    <dt>6.1 许可证期限：</dt>
+                    <dd>除版权所有人主动宣布放弃本软件版权外，本许可证无限期生效。</dd>
+
+                    <dt>6.2 许可证终止：</dt>
+                    <dd>如果您未能遵守本许可证的任何条款或条件，授权方有权终止本许可证。  您的许可证将在您违反本许可证条款时自动终止。</dd>
+
+                    <dt>6.3 终止后的效力：</dt>
+                    <dd>许可证终止后，您根据本许可证所享有的所有权利将立即终止，但您在许可证终止前已合法分发的软件副本，其接收者所获得的许可及权利将不受影响，继续有效。  免责声明（第 5 条）和责任限制（第 5.2 条）在本许可证终止后仍然有效。</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">7. 条款修订</h3>
+                <dl>
+                    <dt>7.1 修订权利保留：</dt>
+                    <dd>授权方保留随时修改本许可证条款的权利，以便更好地适应法律、技术发展以及社区需求。</dd>
+
+                    <dt>7.2 修订生效与接受：</dt>
+                    <dd>修订后的条款将在发布时生效，除非另行声明，否则继续使用、复制、分发或修改本软件即表示您接受修订后的条款。授权方鼓励用户定期查阅本许可证的最新版本。</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-zh">
+                <h3 class="block-header">8. 其他</h3>
+                <dl>
+                    <dt>8.1 法定权利：</dt>
+                    <dd>本许可证不影响您作为最终用户在适用法律下的法定权利。</dd>
+
+                    <dt>8.2 条款可分割性：</dt>
+                    <dd>若本许可证的某些条款被认定为不可执行，其余条款仍然完全有效。</dd>
+
+                    <dt>8.3 版本更新：</dt>
+                    <dd>授权方可能会发布本许可证的修订版本或新版本。您可以选择是继续使用本许可证的旧版本还是选择适用新版本。</dd>
+                </dl>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

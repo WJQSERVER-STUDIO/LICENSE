@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WJQserver Studio Open Source License</title>
+    <style>
+        /*  Qt Breeze 深色主题色板 (近似) */
+        :root {
+            --bg-color: #31363b; /*  深色背景 */
+            --text-color: #f5f5f5; /*  浅色文本 */
+            --header-color: #cdd6f4; /*  浅蓝灰色标题 */
+            --accent-color: #8be9fd; /*  青色强调色 */
+            --block-bg-color: #495057; /*  块状背景色，稍浅于主背景 */
+            --block-border-color: #5c636a; /*  块状边框颜色 */
+            --light-gray: #e0e0e0; /*  浅灰色，用于突出显示 */
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-color); /*  深色背景 */
+            color: var(--text-color); /*  浅色文本 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .license-container {
+            width: 95%;
+            max-width: 1200px;
+            padding: 40px;
+            background-color: var(--bg-color); /* 保持 container 背景色与 body 一致 */
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /*  深色主题下更明显的阴影 */
+            margin: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        /*  Bootstrap-like 栅格系统 (简化) */
+        .row {
+            display: flex;
+            flex-wrap: wrap; /*  允许 row 内 block 换行 */
+            margin-left: -15px; /*  抵消左右 padding 产生的间距 */
+            margin-right: -15px;
+        }
+
+        .col-md-6 {
+            flex: 0 0 50%; /*  默认占据一半宽度 */
+            max-width: 50%;
+            padding-left: 15px; /*  左右 padding，形成列间距 */
+            padding-right: 15px;
+        }
+
+        /*  License Block 样式 */
+        .license-block {
+            margin-bottom: 25px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /*  深色主题下 block 阴影 */
+            background-color: var(--block-bg-color); /*  块状背景色 */
+            border: 1px solid var(--block-border-color); /*  块状边框颜色 */
+        }
+
+        .block-lang-zh, .block-lang-en {
+            padding: 25px;
+            flex: 1;
+            min-width: 50%;
+            word-wrap: break-word; /*  处理长单词换行 */
+        }
+
+        .block-lang-en {
+            padding: 25px;
+            flex: 1;
+            min-width: 100%; /* 英文版本占据block全部宽度 */
+            word-wrap: break-word; /*  处理长单词换行 */
+        }
+
+        .block-header {
+            color: var(--accent-color); /* 青色强调色 */
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 1.6rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /*  为标题添加文字阴影 */
+        }
+
+        /*  标题和文本样式 */
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: var(--header-color); /*  浅蓝灰色标题 */
+            text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.6); /*  为主标题添加更强的文字阴影 */
+        }
+
+        .version {
+            font-size: 1.1rem;
+            color: var(--light-gray); /*  浅灰色版本信息 */
+            margin-bottom: 20px;
+            display: block;
+            opacity: 0.8; /*  降低版本信息透明度，使其更柔和 */
+        }
+
+        .copyright {
+            font-size: 1rem;
+            color: var(--light-gray); /*  浅灰色版权信息 */
+            display: block;
+            margin-bottom: 30px;
+            opacity: 0.7; /*  更低的版权信息透明度 */
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: var(--accent-color); /* 青色强调色 */
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /*  为小标题添加文字阴影 */
+        }
+
+        p, ul, ol, dl, dd {
+            line-height: 1.7;
+            margin-bottom: 12px;
+            color: var(--text-color); /*  浅色正文文本 */
+            font-size: 1rem;
+            opacity: 0.9; /*  稍微降低正文文本透明度 */
+        }
+
+        ul, ol {
+            padding-left: 22px;
+        }
+
+        dt {
+            font-weight: bold;
+            margin-top: 10px;
+            color: var(--header-color); /*  浅蓝灰色定义术语 */
+        }
+
+        hr {
+            display: none;
+        }
+
+        /*  链接样式 */
+        a {
+            color: var(--accent-color); /* 青色链接色 */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /*  浅灰色突出显示 */
+        .block-lang-en {
+            background-color: var(--block-bg-color); /*  英文 block 背景色与中文一致，移除浅灰背景 */
+        }
+        .license-block:nth-child(even) .block-lang-en,
+        .license-block:nth-child(even) .block-lang-zh {
+            background-color: #40454b; /*  交替 block 背景色，更浅的灰色 */
+        }
+
+
+        /* 响应式布局 */
+        @media (max-width: 992px) {
+            .license-container {
+                width: 98%;
+                max-width: 960px;
+                padding: 30px;
+                margin: 15px;
+            }
+            .license-block {
+                flex-direction: column;
+                margin-bottom: 20px;
+                border-radius: 6px;
+            }
+            .block-lang-en {
+                border-left: none;
+                border-top: 1px solid var(--block-border-color);
+            }
+            .block-lang-zh, .block-lang-en {
+                min-width: auto;
+                padding: 20px;
+            }
+            .block-header {
+                font-size: 1.4rem;
+                margin-bottom: 15px;
+            }
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            h3 {
+                font-size: 1.2rem;
+                margin-top: 20px;
+            }
+             p, ul, ol, dl, dd {
+                font-size: 0.95rem;
+                margin-bottom: 10px;
+            }
+            .col-md-6 {
+                flex: 0 0 100%; /*  小屏幕 block 占据整行 */
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .license-container {
+                 border-radius: 8px;
+                 padding: 20px;
+            }
+             .license-block {
+                 margin-bottom: 15px;
+             }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="license-container">
+        <h2>WJQserver Studio Open Source License</h2>
+        <span class="version">Version v2.0</span>
+        <span class="copyright">Copyright © WJQserver Studio 2024</span>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">Definitions</h3>
+                <dl>
+                    <dt>License:</dt>
+                    <dd>Refers to the terms and requirements for use, reproduction, distribution, and modification defined within this license.</dd>
+
+                    <dt>Licensor:</dt>
+                    <dd>Refers to the individual or organization that holds the copyright, or the entity designated by the copyright holder, specifically WJQserver Studio in this license.</dd>
+
+                    <dt>Contributor:</dt>
+                    <dd>Refers to the Licensor and individuals or entities who contribute code or software under this License.</dd>
+
+                    <dt>You:</dt>
+                    <dd>Refers to the individual or legal entity exercising permissions granted by this License.</dd>
+
+                    <dt>Derivative Works:</dt>
+                    <dd>Refers to works modified based on the Software or any part thereof, regardless of the extent of modification. This includes but is not limited to modifications, revisions, adaptations, translations, or other forms of creation based on the Software or any part thereof, as well as collective works containing the Software or parts thereof.</dd>
+
+                    <dt>Non-profit Use:</dt>
+                    <dd>Refers to uses not primarily intended for direct commercial profit, including but not limited to:
+                        <ul>
+                            <li>Personal Use: Use by an individual for personal learning, research, experimentation, non-commercial projects, personal website development, graduation projects, home entertainment, and other non-directly commercial purposes.</li>
+                            <li>Educational Use: Use within educational institutions (such as schools, universities, training organizations) for activities such as teaching, research, and academic exchange.</li>
+                            <li>Scientific Research Use: Use within scientific research institutions, laboratories, and similar organizations for activities such as scientific research and experimental development.</li>
+                            <li>Charitable and Public Welfare Use: Use by charitable organizations, public welfare organizations, and similar non-profit entities for their public missions or internal operation of charitable activities, or to provide public services that do not directly generate commercial profit.</li>
+                            <li>Internal Operational Use (Non-profit Organizations): Use within the internal operations of non-profit organizations, such as for administrative management, membership management, internal communication, project management, and other non-directly profit-generating activities.</li>
+                        </ul>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">Open Source and Free Software</h3>
+                <p>This project is open-source software, allowing users to access and use the source code under the premise of complying with this License.</p>
+                <p>This project aims to provide users with the broadest possible freedom for non-commercial use while ensuring the common development and healthy ecosystem of the community, and providing a clear path for commercial innovation.</p>
+                <p>Copyright is emphasized; all rights are jointly reserved by WJQserver Studio and Contributors.</p>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">License Terms</h3>
+                <h4>1. Permissions for Use</h4>
+                <dl>
+                    <dt>1.1 Non-profit Use:</dt>
+                    <dd>You are granted permission to freely use the Software for any purpose in non-profit use scenarios. Specific non-profit use scenarios include but are not limited to the various situations listed in the Definition section.</dd>
+
+                    <dt>1.2 Commercial Use:</dt>
+                    <dd>You may use the Software in a commercial environment without additional authorization, but your commercial use must comply with the following terms:
+                        <dl>
+                            <dt>1.2.1 Maintain Statements:</dt>
+                            <dd>When conducting commercial use, you must not remove or modify the original copyright notices, license notices, and source statements contained in the Software.</dd>
+
+                            <dt>1.2.2 Open Source Inheritance (Copyleft) and Reciprocal Sharing:</dt>
+                            <dd>If you or your organization wish to use the Software or its Derivative Works for any commercial purpose, including but not limited to:
+                                <ul>
+                                    <li>Profit-generating Distribution: Selling, renting, licensing, or distributing the Software or its Derivative Works.</li>
+                                    <li>Profit-generating Services: Providing commercial services based on the Software or its Derivative Works, such as SaaS services, consulting services, custom development services, and paid technical support services.</li>
+                                    <li>Embedded Commercial Applications: Embedding the Software or its Derivative Works into commercial products or solutions for sale.</li>
+                                    <li>Internal Commercial Operations: Using modified versions within the internal operations of for-profit organizations to directly support their commercial activities, such as customized internal systems, generating commercial revenue directly or indirectly through means including but not limited to placing advertisements in the software or related services (e.g., Google Ads), in-app purchases, membership subscriptions, and charging for value-added features.</li>
+                                </ul>
+                                <p>You must choose one of the following two options:</p>
+                                <ol>
+                                    <li>i) Inherit this License and Open Source: You must distribute your Derivative Works under this License or a compatible open-source license and publicly disclose the entire source code of your Derivative Works, so that recipients of your Derivative Works also enjoy the same rights as you, including the right to further modify and use commercially. This option aims to promote the common development and knowledge sharing of the community, ensuring that commercial innovation achievements based on this Software can also contribute back to the community.</li>
+                                    <li>ii) Obtain Explicit Authorization from the Licensor: If you do not wish to release your Derivative Works in an open-source manner, or wish to distribute them under another license, or you wish to use a modified version in commercial operations without open-sourcing it, you must obtain explicit written authorization from WJQserver Studio in advance. The specific terms and conditions of authorization will be determined separately by WJQserver Studio through negotiation.</li>
+                                </ol>
+                            </dd>
+                        </dl>
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">2. Reproduction and Distribution</h3>
+                <dl>
+                    <dt>2.1 Reproduction and Distribution of Original Version:</dt>
+                    <dd>You may reproduce and distribute the original version of the Software, provided that the following conditions are met:
+                        <ul>
+                            <li>Retain All Statements: Completely retain all original copyright notices, license notices, source statements, and other proprietary notices.</li>
+                            <li>Accompany with License: When distributing the Software, you must also include the full text of this License to ensure that recipients are aware of and understand all terms of this License.</li>
+                        </ul>
+                    </dd>
+
+                    <dt>2.2 Reproduction and Distribution of Derivative Works:</dt>
+                    <dd>You may reproduce and distribute Derivative Works based on the Software. Your distribution of Derivative Works will be subject to the constraints of Clause 1.2.2 of this License (Open Source Inheritance and Reciprocal Sharing).</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">3. Modification Permissions</h3>
+                <dl>
+                    <dt>3.1 Free Modification:</dt>
+                    <dd>You are granted permission to freely modify the Software, regardless of whether the purpose of modification is for non-profit use or commercial use.</dd>
+
+                    <dt>3.2 Constraints on Use and Distribution after Modification:</dt>
+                    <dd>When you use a modified version for commercial purposes or distribute a modified version, you need to comply with the provisions of Clause 1.2.2 of this License (Open Source Inheritance and Reciprocal Sharing) and Clause 2 (Reproduction and Distribution). Even if you do not distribute the modified version, as long as you use it for commercial purposes, you also need to comply with the open-source inheritance clause or obtain authorization.</dd>
+
+                    <dt>3.3 Contribution Acceptance:</dt>
+                    <dd>WJQserver Studio encourages community contribution of code. If you contribute code to this project, you need to agree that your contributed code is licensed under the terms of this License.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">4. Patent Rights</h3>
+                <dl>
+                    <dt>4.1 No Patent Warranty, Risk Self-Bearing:</dt>
+                    <dd>The software is provided “AS IS”, and the Licensor and Contributors explicitly declare that they do not provide any form of warranty regarding patent infringement issues of this software, nor do they assume any responsibility and consequences arising from patent infringement. Users understand and agree that the patent risk of using this software is entirely borne by the users themselves.</dd>
+
+                    <dt>4.2 Handling of Patent Disputes:</dt>
+                    <dd>If any patent infringement allegations, lawsuits, or claims arise due to the user's use of this Software, the user shall be solely responsible for handling and bear all legal liabilities. The Licensor and Contributors are under no obligation to participate in any related legal proceedings, nor do they bear any costs or compensation arising therefrom.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">5. Disclaimer of Warranty</h3>
+                <dl>
+                    <dt>5.1 “AS IS” Provision, No Warranty:</dt>
+                    <dd>The software is provided “AS IS” without any express or implied warranties, including but not limited to warranties of merchantability, fitness for a particular purpose, and non-infringement.</dd>
+
+                    <dt>5.2 Limitation of Liability:</dt>
+                    <dd>To the maximum extent permitted by applicable law, in no event shall the Licensor or any Contributor be liable for any direct, indirect, incidental, special, punitive, or consequential damages (including but not limited to procurement of substitute goods or services; loss of use, data, or profits; or business interruption) however caused and on any theory of liability, whether in contract, strict liability, or tort (including negligence or otherwise) arising in any way out of the use of this software, even if advised of the possibility of such damage.</dd>
+
+                    <dt>5.3 User Legal Responsibility:</dt>
+                    <dd>Users shall treat this project in accordance with local laws and regulations to ensure compliance with all applicable laws and regulations.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">6. License Term and Termination</h3>
+                <dl>
+                    <dt>6.1 License Term:</dt>
+                    <dd>Unless the copyright holder proactively announces the abandonment of the copyright of this software, this License shall be effective indefinitely from the date of your acceptance.</dd>
+
+                    <dt>6.2 License Termination:</dt>
+                    <dd>If you fail to comply with any terms or conditions of this License, the Licensor has the right to terminate this License. Your License will automatically terminate upon your violation of the terms of this License.</dd>
+
+                    <dt>6.3 Effect after Termination:</dt>
+                    <dd>Upon termination of the License, all rights granted to you under this License will terminate immediately, but the licenses and rights obtained by recipients of software copies you have legally distributed before the termination of the License will not be affected and will remain valid. The Disclaimer of Warranty (Clause 5) and Limitation of Liability (Clause 5.2) shall remain in effect after the termination of this License.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">7. Revision of Terms</h3>
+                <dl>
+                    <dt>7.1 Reservation of Revision Rights:</dt>
+                    <dd>The Licensor reserves the right to modify the terms of this License at any time to better adapt to legal, technological developments, and community needs.</dd>
+
+                    <dt>7.2 Effectiveness and Acceptance of Revisions:</dt>
+                    <dd>Revised terms will take effect upon publication, and unless otherwise stated, continued use, reproduction, distribution, or modification of the Software indicates your acceptance of the revised terms. The Licensor encourages users to periodically review the latest version of this License.</dd>
+                </dl>
+            </div>
+        </div>
+
+        <div class="license-block">
+            <div class="block-lang-en">
+                <h3 class="block-header">8. Other</h3>
+                <dl>
+                    <dt>8.1 Statutory Rights:</dt>
+                    <dd>This License does not affect your statutory rights as an end-user under applicable laws.</dd>
+
+                    <dt>8.2 Severability of Terms:</dt>
+                    <dd>If certain terms of this License are deemed unenforceable, the remaining terms shall remain in full force and effect.</dd>
+
+                    <dt>8.3 Version Updates:</dt>
+                    <dd>The Licensor may publish revised versions or new versions of this License. You may choose to continue using the old version of this License or choose to apply the new version.</dd>
+                </dl>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
