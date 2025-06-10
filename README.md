@@ -1,4 +1,4 @@
-# WJQserver Studio 开源许可证
+# WJQserver Studio 许可证
 
 ## 概述
 
